@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
 	<groupId>cnam</groupId>
 	<artifactId>tittineShare</artifactId>
@@ -68,64 +71,6 @@
 			<version>2.4</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.dcm4che2</groupId>
-			<artifactId>core</artifactId>
-			<version>2.0.26</version>
-		</dependency>
-		<dependency>
-			<groupId>org.dcm4che2</groupId>
-			<artifactId>net</artifactId>
-			<version>2.0.26</version>
-		</dependency>
-		<dependency>
-			<groupId>org.dcm4che2</groupId>
-			<artifactId>iod</artifactId>
-			<version>2.0.26</version>
-		</dependency>
-		<dependency>
-			<groupId>org.dcm4che2</groupId>
-			<artifactId>image</artifactId>
-			<version>2.0.26</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.6.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j</artifactId>
-			<version>1.6.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j.impl</groupId>
-			<artifactId>slf4j-log4j</artifactId>
-			<version>1.6.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ximpleware</groupId>
-			<artifactId>vtd-wml</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.datastax.cassandra</groupId>
-			<artifactId>cassandra-driver-core</artifactId>
-			<version>2.0.1</version>
-		</dependency>
-		
-	    <dependency>
-	        <groupId>org.springframework.data</groupId>
-	        <artifactId>spring-data-cassandra</artifactId>
-	        <version>1.0.2.RELEASE</version>
-	    </dependency>
 	    <dependency>
 		    <groupId>org.springframework.data</groupId>
 		    <artifactId>spring-data-jpa</artifactId>
@@ -156,17 +101,6 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.12</version>
 		</dependency>
-		<dependency>
-		  <groupId>commons-fileupload</groupId>
-		  <artifactId>commons-fileupload</artifactId>
-		  <version>1.2.2</version>
-		</dependency>
-		<dependency>
-		  <groupId>commons-io</groupId>
-		  <artifactId>commons-io</artifactId>
-		  <version>1.4</version>
-		</dependency>
-						
 		<!--  Google GSON -->
 		<dependency>
 		    <groupId>com.google.code.gson</groupId>
@@ -184,14 +118,42 @@
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
 			<scope>provided</scope>
-		</dependency>
-		<!-- GSON -->
+		</dependency>		
+		 <!-- MySQL database driver -->
 		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.3</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.9</version>
+		</dependency>	 
+		<!-- Hibernate framework -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>5.0.0.Beta1</version>
 		</dependency>
-		
+		<!-- Hibernate library dependecy start -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>	 
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>	 
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>	 
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.7</version>
+		</dependency>
+		<!-- Hibernate library dependecy end -->
+ 
 	
 	</dependencies>
 
