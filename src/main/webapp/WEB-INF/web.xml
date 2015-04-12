@@ -10,17 +10,6 @@
 			org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 		</param-value>
 	</context-param>
-
-	
-	
-	
-	<!-- Fichier de context XML
-		contient : 
-			- Connecteurs CASSANDRA -->
-	<context-param>
-	    <param-name>contextConfigLocation</param-name>
-	    <param-value>/WEB-INF/applicationcontext.xml</param-value>
-	</context-param>
 	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -43,9 +32,20 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AccueilController</display-name>
+		<servlet-name>AccueilController</servlet-name>
+		<servlet-class>cnam.tittineshare.controller.AccueilController</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>SpringDispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AccueilController</servlet-name>
+		<url-pattern>/AccueilController</url-pattern>
 	</servlet-mapping>
 
 	<session-config>
