@@ -1,9 +1,21 @@
 package cnam.tittineshare.modele.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "UTILISATEUR")
 public class Utilisateur {
 	private Integer id;
 	private String nom;
 	private String prenom;
+	
+	@Id
+    @GeneratedValue
+    @Column(name = "ID")
 	public Integer getId() {
 		return id;
 	}

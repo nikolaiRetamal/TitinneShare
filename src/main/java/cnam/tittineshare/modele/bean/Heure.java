@@ -5,6 +5,12 @@ public class Heure {
 	private Integer minute;
 	
 	
+	public Heure(Integer heure, Integer minute) {
+		super();
+		this.heure = heure;
+		this.minute = minute;		
+	}
+	
 	public Integer getHeure() {
 		return heure;
 	}
