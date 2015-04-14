@@ -22,7 +22,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import cnam.tittineshare.modele.bean.Trajet;
 import cnam.tittineshare.modele.bean.Utilisateur;
 import cnam.tittineshare.modele.dao.TrajetDAO;
+import cnam.tittineshare.modele.dao.TrajetImplDAO;
 import cnam.tittineshare.modele.dao.UtilisateurDAO;
+import cnam.tittineshare.modele.dao.UtilisateurImplDAO;
 
 
 @Configuration
@@ -85,12 +87,12 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Autowired
 	@Bean(name = "utilisateurDao")
 	public UtilisateurDAO getUtilisateurDao(SessionFactory sessionFactory) {
-		return new UtilisateurDAO(sessionFactory);
+		return new UtilisateurImplDAO(sessionFactory);
 	}
 	
 	@Autowired
 	@Bean(name = "trajetDao")
 	public TrajetDAO getTrajetDao(SessionFactory sessionFactory) {
-		return new TrajetDAO(sessionFactory);
+		return new TrajetImplDAO(sessionFactory);
 	}
 }
