@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -28,6 +29,7 @@ import cnam.tittineshare.modele.dao.UtilisateurDAO;
 @Configuration
 @ComponentScan(basePackages="cnam.tittineShare")
 @EnableWebMvc
+@EnableTransactionManagement
 public class MvcConfiguration extends WebMvcConfigurerAdapter{
 
 	@Bean

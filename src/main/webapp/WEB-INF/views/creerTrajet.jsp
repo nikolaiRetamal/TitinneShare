@@ -9,8 +9,10 @@
 	<!-- Imports CSS -->
 	<link href="resources/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link href="resources/datepicker/css/datepicker.css" rel="stylesheet">
 	<link rel="stylesheet" href="resources/css/dropzone.css">
 	<link rel="stylesheet" href="resources/css/basic.css">
+	<link rel="stylesheet" href="resources/css/tittineShare.css">
 </head>
 <body>
 	<!-- Import Header -->
@@ -57,11 +59,11 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="examen">Date</label>
-					<input type="text" class="form-control" id="date" name="date" placeholder="Entrez la date du trajet">
+					<label for="date">Date</label>
+					<input type="text" class="form-control" id="dateDepart" name="date" placeholder="Veuillez saisir une date">
 				</div>
 				<div class="form-group">
-					<label for="tags">Véhicule</label>
+					<label for="vehicule">Véhicule</label>
 					<input type="text" class="form-control" id="vehicule" name="vehicule" placeholder="Entrez le type du véhicule">
 				</div>
 				<div class="form-group">
@@ -78,7 +80,7 @@
 					</select>
 				</div>				
 				<div class="form-group">
-					<label for="examen">Lieu de rendez-vous (Départ et arrivée)</label>
+					<label for="lieuDepart">Lieu de rendez-vous (Départ et arrivée)</label>
 					<input type="text" class="form-control" id="lieuDepart" name="lieuDepart" 
 					placeholder="Entrez une description du lieu de départ">
 					<input type="text" class="form-control" id="lieuArrivee" name="lieuArrivee" 
@@ -90,8 +92,20 @@
 	</div>
 
 </body>
+
 <!-- Imports JS -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="resources/datepicker/js/bootstrap-datepicker.js"></script>
+<script src="resources/datepicker/js/locales/bootstrap-datepicker.fr.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#dateDepart').datepicker({
+			format: 'dd-mm-yyyy',
+			language: 'fr-FR'
+		});
+	});
+
+</script>
 </html>

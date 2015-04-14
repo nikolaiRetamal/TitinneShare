@@ -1,14 +1,24 @@
-html{
+html, body{
 	font-size: 12px;
+	background-color: #ecece4;
 }
 #header{
 	width:100%;
-	background:#00ff80;	
+	background:#82b9a6;	
 	overflow: hidden; /*Empêche height = 0*/
 	padding:5px 0;
 }
+#header #titre{
+	font-size: 32px;
+	padding-right: 15px;
+}
+.centreV{
+	clear:both;
+	display:block;
+	margin-top: 25px;
+}
 #header img{
-	max-height:30px;
+	max-height:100px;
 }
 .menu {
 	display:block;
@@ -101,4 +111,10 @@ li.options{
 }
 table{
 	margin-top:20px;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }

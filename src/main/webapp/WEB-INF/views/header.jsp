@@ -1,25 +1,23 @@
 	<div id="header" class="">
 		<div class="gauche">
 			<ul class="menu">
-				<li class="nomUser">
-					<img alt="user" src="resources/images/user.png">
-					<span>${user.name}</span>
-				</li> 
-				<li class="options">
-					<ul>
-						<li>
-							<a href="mesImages">Mes examens</a>
-						</li>
-						<li>
-							<a href="mesUsages">Mes usages</a>
-						</li>
-					</ul>
-				</li>
 				<li class="import">
-					<a href="import">
-						<img alt="importer" src="resources/images/importer.png">
-						<span>Importer des images</span>
+					<a href="accueil">
+						<img alt="importer" src="resources/images/logo.png">
+						
 					</a>
+					
+				</li>
+				<li class="helper">
+					
+					<span id="titre" >
+						TittineShare	
+					</span>
+					<br>
+					<span>
+						c'est moins cher quand c'est les autres qui payent
+					</span>
+
 				</li>
 			</ul> 
 		</div>
