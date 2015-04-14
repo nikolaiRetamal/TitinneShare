@@ -17,11 +17,8 @@
 	<%@ include file="header.jsp" %>
 	<div id="contenu" style="width:100%">
 		<div class="row">
-			<form:form  modelAttribute="trajet" id="trajetform" action="/save"
+			<form:form  modelAttribute="trajet" id="trajetform" action="/tittineShare/save"
 			class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-				<div class="fallback">
-			    	<input name="file" type="file" multiple />
-				</div>
 				<div class="form-group">
 					<label for="villeDepart">Départ</label>
 					<input type="text" class="form-control" id="villeDepart" name="villeDepart" placeholder="Entrez une ville de départ">
@@ -47,12 +44,12 @@
 				
 				<div class="form-group">
 					<label for="arriveeHeure">Heure d'arrivée</label>
-					<select id="arriveeHeure" name="arriveeHeure">
+					<select class="form-control" id="arriveeHeure" name="arriveeHeure">
 					<% for(int i =0; i<25;i++){ %>
 					   <option value="<%=i%>"><%=i %></option>
 					   <%} %>
 					</select>
-					<select id="arriveeMinute" name="arriveeMinute">
+					<select class="form-control" id="arriveeMinute" name="arriveeMinute">
 					   <option value="0">0</option>
 					   <option value="15">15</option>
 					   <option value="30">30</option>
@@ -68,9 +65,18 @@
 					<input type="text" class="form-control" id="vehicule" name="vehicule" placeholder="Entrez le type du véhicule">
 				</div>
 				<div class="form-group">
-					<label for="tags">Véhicule</label>
-					<input type="text" class="form-control" id="vehicule" name="vehicule" placeholder="Entrez le type du véhicule">
-				</div>					
+					<label for="description">Description du trajet</label>
+					<input type="text" class="form-control" id="description" name="description" 
+					placeholder="Entrez une description sur le trajet">
+				</div>		
+				<div class="form-group">
+					<label for="nbPassagers">Nombre de passagers</label>
+					<select class="form-control" id="nbPassagers" name="nbPassagers">
+					<% for(int i =1; i<6;i++){ %>
+					   <option value="<%=i%>"><%=i %></option>
+					   <%} %>
+					</select>
+				</div>				
 				<div class="form-group">
 					<label for="examen">Lieu de rendez-vous (Départ et arrivée)</label>
 					<input type="text" class="form-control" id="lieuDepart" name="lieuDepart" 
@@ -78,6 +84,7 @@
 					<input type="text" class="form-control" id="lieuArrivee" name="lieuArrivee" 
 					placeholder="Entrez une description du lieu d'arrivée">
 				</div>			
+				<button type="submit" class="btn btn-default">Envoyer</button>
 			</form:form>
 		</div>
 	</div>

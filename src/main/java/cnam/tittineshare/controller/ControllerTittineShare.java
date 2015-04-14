@@ -20,6 +20,7 @@ public class ControllerTittineShare {
 	
 	@Autowired
     private UtilisateurDAO utilisateurDao;
+	@Autowired
     private TrajetDAO trajetDao;
 
 
@@ -27,13 +28,13 @@ public class ControllerTittineShare {
 	public ModelAndView helloWorld(){
  
 		ModelAndView model = new ModelAndView("accueil");
+		model.addObject("titrePage", "accueil");
 		model.addObject("msg", "hello world");
- 
+		System.out.println("COUCOUCOUCOU");
 		return model;
 	}
 	
 	@RequestMapping(value = "/trajets", method = RequestMethod.GET)
-
     public ModelAndView trajets() throws Exception {
         List<Trajet> trajets = trajetDao.list();
         ModelAndView model = new ModelAndView("trajets");
@@ -59,12 +60,14 @@ public class ControllerTittineShare {
 	
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView createUser(HttpServletRequest request) {
-        return new ModelAndView("redirect:/creerTrajet");     
+        return new ModelAndView("creerTrajet");     
     }
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView saveUser(@ModelAttribute Trajet trajet) {
+		System.out.println("Je SAUVE");
+		System.out.println("trajetDao is null = " + (trajetDao == null));
         trajetDao.saveOrUpdate(trajet);
-        return new ModelAndView("redirect:/trajets");
+        return new ModelAndView("/");
     }  
 }

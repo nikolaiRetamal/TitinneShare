@@ -81,6 +81,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 			SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(
 				sessionFactory);
+		System.out.println("Kiki -->");
 		return transactionManager;
 	}
 	
@@ -93,6 +94,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Autowired
 	@Bean(name = "trajetDao")
 	public TrajetDAO getTrajetDao(SessionFactory sessionFactory) {
-		return new TrajetDAO(sessionFactory);
+		System.out.println("Je demande new TrajetDAO(sessionFactory)");
+		TrajetDAO trajetDao = new TrajetDAO(sessionFactory);
+		System.out.println("trajetDao is null = " + (trajetDao == null));
+		return trajetDao;
 	}
 }
