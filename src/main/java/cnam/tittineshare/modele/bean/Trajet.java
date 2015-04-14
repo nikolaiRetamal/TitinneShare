@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.websocket.ClientEndpoint;
 
 @Entity
 @Table(name = "TRAJET")
@@ -18,27 +17,39 @@ public class Trajet implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	@Id
+    @GeneratedValue
+    @Column(name = "TRAJET_ID")
 	private Integer id;
+	@Column(name="VILLE_DEPART")
 	private String villeDepart;
+	@Column(name="VILLE_ARRIVEE")
 	private String villeArrivee;
+	@Column(name="DEPART_MINUTE")
 	private Integer departMinute;
+	@Column(name="DEPART_HEURE")
 	private Integer departHeure;
+	@Column(name="ARRIVEE_MINUTE")
 	private Integer arriveeMinute;
+	@Column(name="ARRIVEE_HEURE")
 	private Integer arriveeHeure;
+	@Column(name="DATE_TRAJET")
 	private String dateTrajet;
+	@Column(name="VEHICULE")
 	private String vehicule;
+	@Column(name="LIEU_DEPART")
 	private String lieuDepart;
+	@Column(name="LIEU_ARRIVEE")
 	private String lieuArrivee;
+	@Column(name="DESCRIPTION")
 	private String description;
+	@Column(name="NB_PASSAGERS")
 	private Integer nbPassagers;
 	
 	/**
 	GETTERS ET SETTERS
 	*/
-	@Id
-    @GeneratedValue
-    @Column(name = "TRAJET_ID")
+
 	public Integer getId() {
 		return id;
 	}
@@ -46,7 +57,7 @@ public class Trajet implements Serializable{
 		this.id = id;
 	}
 	/** ** ** **  */
-	@Column(name="VILLE_DEPART")
+	
 	public String getVilleDepart() {
 		return villeDepart;
 	}
@@ -54,7 +65,7 @@ public class Trajet implements Serializable{
 		this.villeDepart = villeDepart;
 	}
 	/** ** ** **  */
-	@Column(name="VILLE_ARRIVEE")
+	
 	public String getVilleArrivee() {
 		return villeArrivee;
 	}
@@ -63,7 +74,7 @@ public class Trajet implements Serializable{
 	}
 	
 	/** ** ** **  */
-	@Column(name="DATE_TRAJET")
+	
 	public String getDateTrajet() {
 		return dateTrajet;
 	}
@@ -71,7 +82,7 @@ public class Trajet implements Serializable{
 		this.dateTrajet = dateTrajet;
 	}
 	/** ** ** **  */
-	@Column(name="DEPART_MINUTE")
+	
 	public Integer getDepartMinute() {
 		return departMinute;
 	}
@@ -79,7 +90,7 @@ public class Trajet implements Serializable{
 		this.departMinute = departMinute;
 	}
 	/** ** ** **  */
-	@Column(name="DEPART_HEURE")
+	
 	public Integer getDepartHeure() {
 		return departHeure;
 	}
@@ -87,7 +98,6 @@ public class Trajet implements Serializable{
 		this.departHeure = departHeure;
 	}
 	/** ** ** **  */
-	@Column(name="ARRIVEE_MINUTE")
 	public Integer getArriveeMinute() {
 		return arriveeMinute;
 	}
@@ -95,7 +105,7 @@ public class Trajet implements Serializable{
 		this.arriveeMinute = arriveeMinute;
 	}
 	/** ** ** **  */
-	@Column(name="ARRIVEE_HEURE")
+
 	public Integer getArriveeHeure() {
 		return arriveeHeure;
 	}
@@ -103,7 +113,7 @@ public class Trajet implements Serializable{
 		this.arriveeHeure = arriveeHeure;
 	}
 	/** ** ** **  */
-	@Column(name="VEHICULE")
+
 	public String getVehicule() {
 		return vehicule;
 	}
@@ -111,7 +121,7 @@ public class Trajet implements Serializable{
 		this.vehicule = vehicule;
 	}
 	/** ** ** **  */
-	@Column(name="LIEU_DEPART")
+
 	public String getLieuDepart() {
 		return lieuDepart;
 	}
@@ -119,7 +129,6 @@ public class Trajet implements Serializable{
 		this.lieuDepart = lieuDepart;
 	}
 	/** ** ** **  */
-	@Column(name="LIEU_ARRIVEE")
 	public String getLieuArrivee() {
 		return lieuArrivee;
 	}
@@ -127,7 +136,6 @@ public class Trajet implements Serializable{
 		this.lieuArrivee = lieuArrivee;
 	}
 	/** ** ** **  */
-	@Column(name="DESCRIPTION")
 	public String getDescription() {
 		return description;
 	}
@@ -135,28 +143,12 @@ public class Trajet implements Serializable{
 		this.description = description;
 	}
 	/** ** ** **  */
-	@Column(name="NB_PASSAGERS")
+
 	public Integer getNbPassagers() {
 		return nbPassagers;
 	}
 	public void setNbPassagers(Integer nbPassagers) {
 		this.nbPassagers = nbPassagers;
-	}
-	
-	/** ** ** **  */
-	public Heure getHeureDepart() {
-		return new Heure(departHeure,departMinute);
-	}
-	public void setHeureDepart(Heure heureDepart) {
-		this.departHeure = heureDepart.getHeure();
-		this.departMinute = heureDepart.getMinute();
-	}
-	public Heure getHeureArrivee() {
-		return new Heure(arriveeHeure, arriveeMinute);
-	}
-	public void setHeureArrivee(Heure heureArrivee) {
-		this.arriveeHeure = heureArrivee.getHeure();
-		this.arriveeMinute = heureArrivee.getMinute();
 	}
 	
 }

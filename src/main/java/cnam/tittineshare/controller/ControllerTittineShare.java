@@ -57,6 +57,11 @@ public class ControllerTittineShare {
         return new ModelAndView("redirect:/trajets");     
     }
 	
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+    public ModelAndView createUser(HttpServletRequest request) {
+        return new ModelAndView("redirect:/creerTrajet");     
+    }
+	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView saveUser(@ModelAttribute Trajet trajet) {
         trajetDao.saveOrUpdate(trajet);
