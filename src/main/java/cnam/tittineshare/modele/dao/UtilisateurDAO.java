@@ -24,9 +24,8 @@ public class UtilisateurDAO {
         this.sessionFactory = sessionFactory;
     }
  
-    @Override
     @Transactional
-    public List<U> list() {
+    public List<Utilisateur> list() {
         @SuppressWarnings("unchecked")
         List<Utilisateur> listUtilisateur = (List<Utilisateur>) sessionFactory.getCurrentSession()
                 .createCriteria(Utilisateur.class)
@@ -35,21 +34,18 @@ public class UtilisateurDAO {
         return listUtilisateur;
     }
  
-    @Override
     @Transactional
     public void saveOrUpdate(Utilisateur user) {
         sessionFactory.getCurrentSession().saveOrUpdate(user);
     }
  
-    @Override
     @Transactional
     public void delete(int id) {
         Utilisateur userToDelete = new Utilisateur();
         userToDelete.setId(id);
         sessionFactory.getCurrentSession().delete(userToDelete);
     }
- 
-    @Override
+
     @Transactional
     public Utilisateur get(int id) {
         String hql = "from Utilisateur where id=" + id;

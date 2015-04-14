@@ -24,7 +24,6 @@ public class TrajetDAO {
         this.sessionFactory = sessionFactory;
     }
  
-    @Override
     @Transactional
     public List<Trajet> list() {
         @SuppressWarnings("unchecked")
@@ -35,13 +34,11 @@ public class TrajetDAO {
         return listTrajet;
     }
  
-    @Override
     @Transactional
     public void saveOrUpdate(Trajet trajet) {
         sessionFactory.getCurrentSession().saveOrUpdate(trajet);
     }
  
-    @Override
     @Transactional
     public void delete(int id) {
         Trajet trajetToDelete = new Trajet();
@@ -49,7 +46,6 @@ public class TrajetDAO {
         sessionFactory.getCurrentSession().delete(trajetToDelete);
     }
  
-    @Override
     @Transactional
     public Trajet get(int id) {
         String hql = "from trajet where id=" + id;
