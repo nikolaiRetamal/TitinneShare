@@ -16,28 +16,28 @@ public class Utilisateur implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	private Integer id;
-	private String nom;
-	private String prenom;
-	
+
 	@Id
     @GeneratedValue
     @Column(name = "UTILISATEUR_ID")
+	private Integer id;
+    @Column(name = "UTILISATEUR_NOM")
+	private String nom;
+    @Column(name = "UTILISATEUR_PRENOM")
+	private String prenom;
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-    @Column(name = "UTILISATEUR_NOM")
 	public String getNom() {
 		return nom;
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-    @Column(name = "UTILISATEUR_PRENOM")
 	public String getPrenom() {
 		return prenom;
 	}
