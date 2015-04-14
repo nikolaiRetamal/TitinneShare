@@ -24,6 +24,8 @@ public class TrajetDAO {
         this.sessionFactory = sessionFactory;
     }
  
+
+   
     @Transactional
     public List<Trajet> list() {
         @SuppressWarnings("unchecked")
@@ -59,5 +61,17 @@ public class TrajetDAO {
         }
          
         return null;
+    }
+    
+    
+    @Transactional
+    public List<Trajet> getByUtilisateur(int utilisateurId) {
+        String hql = "from trajet where utilisateur_id=" + utilisateurId;
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+         
+        @SuppressWarnings("unchecked")
+        List<Trajet> trajets = (List<Trajet>) query.list();
+                 
+        return trajets;
     }
 }

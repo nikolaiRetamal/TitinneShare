@@ -24,6 +24,10 @@ public class UtilisateurDAO {
         this.sessionFactory = sessionFactory;
     }
  
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
     @Transactional
     public List<Utilisateur> list() {
         @SuppressWarnings("unchecked")
@@ -34,17 +38,29 @@ public class UtilisateurDAO {
         return listUtilisateur;
     }
  
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
     @Transactional
     public void saveOrUpdate(Utilisateur user) {
         sessionFactory.getCurrentSession().saveOrUpdate(user);
     }
  
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
     @Transactional
     public void delete(int id) {
         Utilisateur userToDelete = new Utilisateur();
         userToDelete.setId(id);
         sessionFactory.getCurrentSession().delete(userToDelete);
     }
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> refs/remotes/origin/master
 
     @Transactional
     public Utilisateur get(int id) {
