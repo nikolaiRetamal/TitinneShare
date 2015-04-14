@@ -15,12 +15,21 @@
 <body>
 	<%@ include file="header.jsp"%>
 	<div class="contenu">
-		<h1 class="titreRecherche">${titrePage}</h1>
-		<div class="row">
-			<form:form  id="identification" action="/identification">
-				<div align="center">	Bienvenue Sur Tittine Share !!! </div>
-			</form:form>
+		<h1 class="titreSection">${titrePage}</h1>
+		<hr class="separateur">
+		
+		<div class="action">
+			<a href="trajets">
+				<span> Mes trajets</span>
+			</a>	
 		</div>
+		<div class="action">
+			<a href="create">
+				<span>Créer un trajet</span>
+			</a>
+		</div>
+
+		
 	</div>
 </body>
 <!-- Imports JS -->

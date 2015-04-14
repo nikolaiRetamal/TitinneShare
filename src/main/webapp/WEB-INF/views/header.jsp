@@ -3,7 +3,7 @@
 			<ul class="menu">
 				<li class="import">
 					<a href="accueil">
-						<img alt="importer" src="resources/images/logo.png">
+						<img alt="importer" src="resources/images/logo.png" id="logo">
 						
 					</a>
 					
@@ -11,7 +11,7 @@
 				<li class="helper">
 					
 					<span id="titre" >
-						TittineShare	
+						Tittine Share	
 					</span>
 					<br>
 					<span>

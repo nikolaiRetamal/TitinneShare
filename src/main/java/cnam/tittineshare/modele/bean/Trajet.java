@@ -45,6 +45,10 @@ public class Trajet implements Serializable{
 	private String description;
 	@Column(name="NB_PASSAGERS")
 	private Integer nbPassagers;
+	@Column(name="NB_BAGAGES")
+	private Integer nbBagages;
+	@Column(name="TYPE_TRAJET")
+	private Integer typeTrajet;
 	
 	/**
 	GETTERS ET SETTERS
@@ -150,5 +154,12 @@ public class Trajet implements Serializable{
 	public void setNbPassagers(Integer nbPassagers) {
 		this.nbPassagers = nbPassagers;
 	}
+	public Integer getTypeTrajet() {
+		return typeTrajet;
+	}
+	public void setTypeTrajet(Integer typeTrajet) {
+		this.typeTrajet = typeTrajet;
+	}
+	
 	
 }
