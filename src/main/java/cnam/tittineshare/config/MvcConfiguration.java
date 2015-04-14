@@ -22,9 +22,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import cnam.tittineshare.modele.bean.Trajet;
 import cnam.tittineshare.modele.bean.Utilisateur;
 import cnam.tittineshare.modele.dao.TrajetDAO;
-import cnam.tittineshare.modele.dao.TrajetImplDAO;
 import cnam.tittineshare.modele.dao.UtilisateurDAO;
-import cnam.tittineshare.modele.dao.UtilisateurImplDAO;
 
 
 @Configuration
@@ -57,9 +55,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/usersdb");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/tittineShare");
 		dataSource.setUsername("root");
-		dataSource.setPassword("secret");
+		dataSource.setPassword("root");
 	 
 		return dataSource;
 	}
@@ -87,12 +85,12 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Autowired
 	@Bean(name = "utilisateurDao")
 	public UtilisateurDAO getUtilisateurDao(SessionFactory sessionFactory) {
-		return new UtilisateurImplDAO(sessionFactory);
+		return new UtilisateurDAO(sessionFactory);
 	}
 	
 	@Autowired
 	@Bean(name = "trajetDao")
 	public TrajetDAO getTrajetDao(SessionFactory sessionFactory) {
-		return new TrajetImplDAO(sessionFactory);
+		return new TrajetDAO(sessionFactory);
 	}
 }

@@ -61,21 +61,7 @@ public class Trajet implements Serializable{
 	public void setVilleArrivee(String villeArrivee) {
 		this.villeArrivee = villeArrivee;
 	}
-	/** ** ** **  */
-	public Heure getHeureDepart() {
-		return new Heure(departHeure,departMinute);
-	}
-	public void setHeureDepart(Heure heureDepart) {
-		this.departHeure = heureDepart.getHeure();
-		this.departMinute = heureDepart.getMinute();
-	}
-	public Heure getHeureArrivee() {
-		return new Heure(arriveeHeure, arriveeMinute);
-	}
-	public void setHeureArrivee(Heure heureArrivee) {
-		this.arriveeHeure = heureArrivee.getHeure();
-		this.arriveeMinute = heureArrivee.getMinute();
-	}
+	
 	/** ** ** **  */
 	@Column(name="DATE_TRAJET")
 	public String getDateTrajet() {
@@ -155,6 +141,22 @@ public class Trajet implements Serializable{
 	}
 	public void setNbPassagers(Integer nbPassagers) {
 		this.nbPassagers = nbPassagers;
+	}
+	
+	/** ** ** **  */
+	public Heure getHeureDepart() {
+		return new Heure(departHeure,departMinute);
+	}
+	public void setHeureDepart(Heure heureDepart) {
+		this.departHeure = heureDepart.getHeure();
+		this.departMinute = heureDepart.getMinute();
+	}
+	public Heure getHeureArrivee() {
+		return new Heure(arriveeHeure, arriveeMinute);
+	}
+	public void setHeureArrivee(Heure heureArrivee) {
+		this.arriveeHeure = heureArrivee.getHeure();
+		this.arriveeMinute = heureArrivee.getMinute();
 	}
 	
 }
