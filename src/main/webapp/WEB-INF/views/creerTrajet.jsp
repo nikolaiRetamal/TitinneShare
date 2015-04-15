@@ -27,85 +27,147 @@
 				<div class="form-group">
 					<label for="typeTrajet">Type de trajet</label>
 					<select id="typeTrajet" name="typeTrajet">
-					   <option value="0">Conducteur</option>
-					   <option value="1">Passager</option>
+						<c:choose>
+							<c:when test="${typeTrajet=='1'}">
+								<option value="0">Conducteur</option>
+								<option value="1" selected="selected">Passager</option>
+							</c:when>
+							
+							<c:otherwise>
+								<option value="0" selected="selected">Conducteur</option>
+								<option value="1">Passager</option>
+							</c:otherwise>
+						</c:choose>
+					   
+					   
 					</select>
 				</div>
 				<div class="form-group">
 					<label for="villeDepart">Départ</label>
-					<input type="text" class="form-control" id="villeDepart" name="villeDepart" placeholder="Entrez une ville de départ">
+					<input type="text" class="form-control" id="villeDepart" name="villeDepart" 
+					placeholder="Entrez une ville de départ" value="${trajet.villeDepart}">
 				</div>
 				<div class="form-group">
-					<label for="villeArrivee">Arrivé</label>
-					<input type="text" class="form-control" id="villeArrivee" name="villeArrivee" placeholder="Entrez une ville d'arrivé">
+					<label for="villeArrivee">Arrivée</label>
+					<input type="text" class="form-control" id="villeArrivee" name="villeArrivee" 
+					placeholder="Entrez une ville d'arrivé" value="${trajet.villeArrivee}">
 				</div>
 				<div class="form-group">
 					<label for="departMinute">Heure de départ</label>
-					<select id="departHeure" name="departHeure">
-					<% for(int i =0; i<25;i++){ %>
-					   <option value="<%=i%>"><%=i %></option>
-					   <%} %>
+					<select id="departHeure" name="departHeure" >
+					   <c:forEach var="i" begin="0" end="24">
+						<c:choose>
+							<c:when test="${trajet.departHeure==i}">
+								<option value="${i}" selected="selected">${i}</option>
+							</c:when>
+							
+							<c:otherwise>
+								<option value="${i}">${i}</option>
+							</c:otherwise>
+						</c:choose>					   
+			          </c:forEach>
 					</select>
 					<span>H</span>
 					<select id="departMinute" name="departMinute">
-					   <option value="0">0</option>
-					   <option value="15">15</option>
-					   <option value="30">30</option>
-					   <option value="45">45</option>
+					  <c:forEach var="i" begin="0" end="45" step="15">
+						<c:choose>
+							<c:when test="${trajet.departMinute==i}">
+								<option value="${i}" selected="selected">${i}</option>
+							</c:when>
+							
+							<c:otherwise>
+								<option value="${i}">${i}</option>
+							</c:otherwise>
+						</c:choose>					   
+			          </c:forEach>
 					</select>
 				</div>
 				
 				<div class="form-group">
 					<label for="arriveeHeure">Heure d'arrivée</label>
 					<select id="arriveeHeure" name="arriveeHeure">
-					<% for(int i =0; i<25;i++){ %>
-					   <option value="<%=i%>"><%=i %></option>
-					   <%} %>
+					   <c:forEach var="i" begin="0" end="24">
+						<c:choose>
+							<c:when test="${trajet.arriveeHeure==i}">
+								<option value="${i}" selected="selected">${i}</option>
+							</c:when>
+							
+							<c:otherwise>
+								<option value="${i}">${i}</option>
+							</c:otherwise>
+						</c:choose>					   
+			          </c:forEach>
 					</select>
 					<span>H</span>
 					<select id="arriveeMinute" name="arriveeMinute">
-					   <option value="0">0</option>
-					   <option value="15">15</option>
-					   <option value="30">30</option>
-					   <option value="45">45</option>
+					
+					  <c:forEach var="i" begin="0" end="45" step="15">
+						<c:choose>
+							<c:when test="${trajet.arriveeMinute==i}">
+								<option value="${i}" selected="selected">${i}</option>
+							</c:when>
+							
+							<c:otherwise>
+								<option value="${i}">${i}</option>
+							</c:otherwise>
+						</c:choose>					   
+			          </c:forEach>
 					</select>
 				</div>
 				<div class="form-group">
 					<label for="dateTrajet">Date</label>
-					<input type="text" class="form-control" id="dateTrajet" name="dateTrajet" placeholder="Veuillez saisir une date">
+					<input type="text" class="form-control" id="dateTrajet" name="dateTrajet" 
+					placeholder="Veuillez saisir une date" value="${trajet.dateTrajet}">
 				</div>
 				<div class="form-group conducteur">
 					<label for="vehicule">Véhicule</label>
-					<input type="text" class="form-control" id="vehicule" name="vehicule" placeholder="Entrez le type du véhicule">
+					<input type="text" class="form-control" id="vehicule" name="vehicule" 
+					placeholder="Entrez le type du véhicule" value="${trajet.vehicule}">
 				</div>
 				<div class="form-group conducteur">
 					<label for="description">Description du trajet</label>
 					<input type="text" class="form-control" id="description" name="description" 
-					placeholder="Entrez une description sur le trajet">
+					placeholder="Entrez une description sur le trajet" value="${trajet.description}">
 				</div>		
 				<div class="form-group conducteur">
 					<label for="nbPassagers">Nombre de passagers</label>
 					<select class="form-control" id="nbPassagers" name="nbPassagers">
-					<% for(int i =1; i<6;i++){ %>
-					   <option value="<%=i%>"><%=i %></option>
-					   <%} %>
+					   <c:forEach var="i" begin="0" end="6">
+						<c:choose>
+							<c:when test="${trajet.nbPassagers==i}">
+								<option value="${i}" selected="selected">${i}</option>
+							</c:when>
+							
+							<c:otherwise>
+								<option value="${i}">${i}</option>
+							</c:otherwise>
+						</c:choose>					   
+			          </c:forEach>
 					</select>
 				</div>
 				<div class="form-group passager">
 					<label for="nbBagages">Nombre de bagages</label>
 					<select class="form-control" id="nbBagages" name="nbBagages">
-					<% for(int i =1; i<3;i++){ %>
-					   <option value="<%=i%>"><%=i %></option>
-					   <%} %>
+					   <c:forEach var="i" begin="0" end="3">
+						<c:choose>
+							<c:when test="${trajet.nbBagages==i}">
+								<option value="${i}" selected="selected">${i}</option>
+							</c:when>
+							
+							<c:otherwise>
+								<option value="${i}">${i}</option>
+							</c:otherwise>
+						</c:choose>					   
+			          </c:forEach>
 					</select>
 				</div>					
 				<div class="form-group conducteur">
 					<label for="lieuDepart">Lieu de rendez-vous (Départ et arrivée)</label>
 					<input type="text" class="form-control" id="lieuDepart" name="lieuDepart" 
-					placeholder="Entrez une description du lieu de départ">
+					placeholder="Entrez une description du lieu de départ" value="${trajet.lieuDepart}">
 					<br>
 					<input type="text" class="form-control" id="lieuArrivee" name="lieuArrivee" 
-					placeholder="Entrez une description du lieu d'arrivée">
+					placeholder="Entrez une description du lieu d'arrivée" value="${trajet.lieuArrivee}">
 				</div>			
 				<button type="submit" class="btn btn-default">Envoyer</button>
 			</form:form>

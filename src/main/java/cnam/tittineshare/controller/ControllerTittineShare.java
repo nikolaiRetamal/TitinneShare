@@ -83,7 +83,7 @@ public class ControllerTittineShare {
 	@RequestMapping(value = "/modifier", method = RequestMethod.GET)
     public ModelAndView editTrajet(@RequestParam("id") String id) {
         Trajet trajet = trajetDao.get(Integer.parseInt(id));
-        ModelAndView model = new ModelAndView("modifier");
+        ModelAndView model = new ModelAndView("creerTrajet");
         model.addObject("trajet", trajet);
         return model;      
     }
