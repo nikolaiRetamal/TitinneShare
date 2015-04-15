@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link href="resources/css/footable.core.min.css" rel="stylesheet" type="text/css" />
 	<link href="resources/css/footable.metro.min.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="resources/css/medimage.css">
+	<link rel="stylesheet" href="resources/css/tittineShare.css">
 </head>
 <body>
 	<%@ include file="header.jsp" %>

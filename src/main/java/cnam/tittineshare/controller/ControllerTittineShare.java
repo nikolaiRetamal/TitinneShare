@@ -26,7 +26,6 @@ public class ControllerTittineShare {
 	
 	private static final String UTILISATEUR_SESSION = "utilisateur";
 
-
 	/**
 	 * 
 	 * Servlet d'accueil, renvoie vers le menu de choix
@@ -133,7 +132,7 @@ public class ControllerTittineShare {
         }else{
         	model.addObject("typeTrajet", "Passager");
         }
-        return new ModelAndView("redirect:/detailTrajet");
+        return model;
     } 
 	
 

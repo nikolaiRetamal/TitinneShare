@@ -173,6 +173,10 @@ public class Trajet implements Serializable{
 	public void setTypeTrajet(Integer typeTrajet) {
 		this.typeTrajet = typeTrajet;
 	}
-	
-	
+	public Integer getNbBagages() {
+		return nbBagages;
+	}
+	public void setNbBagages(Integer nbBagages) {
+		this.nbBagages = nbBagages;
+	}
 }

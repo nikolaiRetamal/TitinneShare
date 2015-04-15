@@ -71,8 +71,8 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="date">Date</label>
-					<input type="text" class="form-control" id="dateDepart" name="date" placeholder="Veuillez saisir une date">
+					<label for="dateTrajet">Date</label>
+					<input type="text" class="form-control" id="dateTrajet" name="dateTrajet" placeholder="Veuillez saisir une date">
 				</div>
 				<div class="form-group conducteur">
 					<label for="vehicule">Véhicule</label>
