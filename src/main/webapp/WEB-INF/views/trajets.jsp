@@ -42,8 +42,8 @@
 							<td>${trajet.departHeure}h${trajet.departMinute} ${trajet.villeDepart} <-> ${trajet.villeArrivee} </td>
 							<td>
 								<!-- A FAIRE beau bouton-->
-								<a class="btn" href="detailTrajet?id=${trajet.id}">Détail</button>
-								<button>Modifier </button>
+								<a class="btn" href="detailTrajet?id=${trajet.id}">Détail</a>
+								<a class="btn" href="modifier?id=${trajet.id}">Modifier </a>
 							</td>
 						</tr>
 					</c:forEach>

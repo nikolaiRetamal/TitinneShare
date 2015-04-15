@@ -50,7 +50,7 @@ public class TrajetDAO {
  
     @Transactional
     public Trajet get(int id) {
-        String hql = "from trajet where id=" + id;
+        String hql = "from Trajet where id=" + id;
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
          
         @SuppressWarnings("unchecked")

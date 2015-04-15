@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import cnam.tittineshare.modele.bean.Trajet;
@@ -80,9 +81,8 @@ public class ControllerTittineShare {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/modifier", method = RequestMethod.GET)
-    public ModelAndView editTrajet(HttpServletRequest request) {
-        int trajetId = Integer.parseInt(request.getParameter("id"));
-        Trajet trajet = trajetDao.get(trajetId);
+    public ModelAndView editTrajet(@RequestParam("id") String id) {
+        Trajet trajet = trajetDao.get(Integer.parseInt(id));
         ModelAndView model = new ModelAndView("modifier");
         model.addObject("trajet", trajet);
         return model;      
@@ -139,6 +139,18 @@ public class ControllerTittineShare {
         return model;
     } 
 	
+	@RequestMapping(value = "/detailTrajet", method = RequestMethod.GET)
+    public ModelAndView detailTrajet(@RequestParam("id") String id) {
+		Trajet trajet = trajetDao.get(Integer.parseInt(id));
+        ModelAndView model = new ModelAndView("detailTrajet");
+        model.addObject("trajet", trajet);
+        if(trajet.getTypeTrajet().equals(0)){
+        	model.addObject("typeTrajet", "Conducteur");
+        }else{
+        	model.addObject("typeTrajet", "Passager");
+        }
+        return model;     
+    }
 
 	/**
 	 * 
