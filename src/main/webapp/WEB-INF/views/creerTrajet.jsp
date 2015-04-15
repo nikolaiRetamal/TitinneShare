@@ -71,8 +71,8 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="date">Date</label>
-					<input type="text" class="form-control" id="dateDepart" name="date" placeholder="Veuillez saisir une date">
+					<label for="dateTrajet">Date</label>
+					<input type="text" class="form-control" id="dateTrajet" name="dateTrajet" placeholder="Veuillez saisir une date">
 				</div>
 				<div class="form-group conducteur">
 					<label for="vehicule">Véhicule</label>
@@ -99,7 +99,7 @@
 					   <%} %>
 					</select>
 				</div>					
-				<div class="form-group">
+				<div class="form-group conducteur">
 					<label for="lieuDepart">Lieu de rendez-vous (Départ et arrivée)</label>
 					<input type="text" class="form-control" id="lieuDepart" name="lieuDepart" 
 					placeholder="Entrez une description du lieu de départ">
@@ -122,11 +122,14 @@
 <script src="resources/datepicker/js/locales/bootstrap-datepicker.fr.js"></script>
 <script type="text/javascript">
 	$(function() {
+		//Plugin pour choix de la date
 		$('#dateDepart').datepicker({
 			format: 'dd-mm-yyyy',
 			language: 'fr-FR'
 		});
+		//Event listener pour gérer les types de trajets
 		$( "#typeTrajet" ).change(function() {
+			
 			 if($( this ).val() == 1){
 				 $(".conducteur").hide();
 				 $(".passager").show();
@@ -135,6 +138,7 @@
 				 $(".passager").hide();
 			 } 
 			});
+		 //Par défaut on crée un trajet conducteur
 		 $(".passager").hide();
 
 	});
