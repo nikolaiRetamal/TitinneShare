@@ -33,10 +33,24 @@ public class ControllerTittineShare {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView helloWorld(){
+	@RequestMapping(value = "/accueil", method = RequestMethod.GET)
+	public ModelAndView accueil(){
 		ModelAndView model = new ModelAndView("accueil");
 		model.addObject("titrePage", "accueil");
+		return model;
+	}
+	
+	/**
+	 * 
+	 * Servlet d'accès à la page d'identification
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView identification(){
+		ModelAndView model = new ModelAndView("identification");
+		model.addObject("titrePage", "identification");
+		model.addObject("message", "Veuillez vous identifier");
 		return model;
 	}
 	
@@ -112,7 +126,7 @@ public class ControllerTittineShare {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView saveTrajet(@ModelAttribute Trajet trajet) {
         trajetDao.saveOrUpdate(trajet);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/accueil");
     }  
 	
 
@@ -140,7 +154,7 @@ public class ControllerTittineShare {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/erreurConnexion", method = RequestMethod.POST)
+	@RequestMapping(value="/erreurConnexion", method = RequestMethod.GET)
     public ModelAndView erreurConnexion(@ModelAttribute HttpServletRequest request) {
 		request.getSession().invalidate();
 		ModelAndView modele = new ModelAndView("redirect:/");
@@ -155,7 +169,7 @@ public class ControllerTittineShare {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value="/deconnexion", method = RequestMethod.POST)
+	@RequestMapping(value="/deconnexion", method = RequestMethod.GET)
     public ModelAndView deconnexion(@ModelAttribute HttpServletRequest request) {
 		request.getSession().invalidate();
 		ModelAndView modele = new ModelAndView("redirect:/");

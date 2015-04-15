@@ -21,7 +21,14 @@
 			</span>
 			${titrePage}
 		</h2>
-
+		<c:when test="${not empty message}">
+			<h2 style="font-size: medium ;text-align: center;">
+			<span class="lock">
+				<img alt="attention" src="resources/images/caution.png">
+			</span>
+			${message}
+			</h2>
+		</c:when>
 		<form action="/tittineShare/connexion" method="POST">
 
 			<fieldset>
