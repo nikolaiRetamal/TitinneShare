@@ -147,7 +147,7 @@ public class ControllerTittineShare {
 	 */
 	@RequestMapping(value="/connexion", method = RequestMethod.POST)
 	public ModelAndView connexion(@ModelAttribute Utilisateur utilisateur, HttpServletRequest request) {
-        utilisateurDao.saveOrUpdate(utilisateur);
+		utilisateur = utilisateurDao.saveOrUpdate(utilisateur);
         request.getSession(false).setAttribute(UTILISATEUR_SESSION, utilisateur);
 		ModelAndView model = new ModelAndView("accueil");
 		model.addObject("titrePage", "accueil");
