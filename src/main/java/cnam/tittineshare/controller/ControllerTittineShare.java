@@ -124,10 +124,17 @@ public class ControllerTittineShare {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ModelAndView saveTrajet(@ModelAttribute Trajet trajet) {
+    public ModelAndView saveUser(@ModelAttribute Trajet trajet) {
         trajetDao.saveOrUpdate(trajet);
-        return new ModelAndView("redirect:/accueil");
-    }  
+        ModelAndView model = new ModelAndView("detailTrajet");
+        model.addObject("trajet", trajet);
+        if(trajet.getTypeTrajet().equals(0)){
+        	model.addObject("typeTrajet", "Conducteur");
+        }else{
+        	model.addObject("typeTrajet", "Passager");
+        }
+        return new ModelAndView("redirect:/detailTrajet");
+    } 
 	
 
 	/**
