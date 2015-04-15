@@ -123,7 +123,7 @@
 <script type="text/javascript">
 	$(function() {
 		//Plugin pour choix de la date
-		$('#dateDepart').datepicker({
+		$('#dateTrajet').datepicker({
 			format: 'dd-mm-yyyy',
 			language: 'fr-FR'
 		});
