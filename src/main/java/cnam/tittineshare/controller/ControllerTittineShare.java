@@ -42,7 +42,7 @@ public class ControllerTittineShare {
 	
 	/**
 	 * 
-	 * Servlet d'accès à la page d'identification
+	 * Servlet d'accï¿½s ï¿½ la page d'identification
 	 * 
 	 * @return
 	 */
@@ -56,15 +56,16 @@ public class ControllerTittineShare {
 	
 	/**
 	 * 
-	 * Servlet d'accès à la page de configuration d'un trajet
-	 * Bouton "Créer trajet"
+	 * Servlet d'accÃ¨s Ã  la page de configuration d'un trajet
+	 * Bouton "CrÃ©er trajet"
 	 * 
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/trajets", method = RequestMethod.GET)
-    public ModelAndView trajets() {
-        List<Trajet> trajets = trajetDao.list();
+    public ModelAndView trajets(HttpServletRequest request) {
+		Utilisateur utilisateur = getUtilisateur(request);
+        List<Trajet> trajets = trajetDao.getByUtilisateur(utilisateur.getId());
         ModelAndView model = new ModelAndView("trajets");
         model.addObject("trajets", trajets);
         return model;
@@ -72,7 +73,7 @@ public class ControllerTittineShare {
 	
 	/**
 	 * 
-	 * Servlet d'accès à la page de modification d'un trajet
+	 * Servlet d'accÃ¨s Ã  la page de modification d'un trajet
 	 * Bouton "Modifier trajet"
 	 * 
 	 * @return
@@ -90,7 +91,7 @@ public class ControllerTittineShare {
 	/**
 	 * 
 	 * Servlet de suppression d'un trajet, sur la page de configuration d'un trajet
-	 * Renvoie à la liste de choix des trajets existants
+	 * Renvoie ï¿½ la liste de choix des trajets existants
 	 * 
 	 * @return
 	 * @throws Exception
@@ -105,7 +106,7 @@ public class ControllerTittineShare {
 	/**
 	 * 
 	 * Servlet de sauvegarde d'un trajet
-	 * Appellée lors de la validation des formulaires de création
+	 * Appellï¿½e lors de la validation des formulaires de crï¿½ation
 	 * 
 	 * @return
 	 * @throws Exception
@@ -118,13 +119,15 @@ public class ControllerTittineShare {
 	/**
 	 * 
 	 * Servlet de sauvegarde d'un trajet
-	 * Appellée lors de la validation du formulaire de modification
+	 * Appellï¿½e lors de la validation du formulaire de modification
 	 * 
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ModelAndView saveUser(@ModelAttribute Trajet trajet) {
+    public ModelAndView saveUser(@ModelAttribute Trajet trajet, HttpServletRequest request) {
+		Utilisateur utilisateur = getUtilisateur(request);
+		trajet.setUtilisateurId(utilisateur.getId());
         trajetDao.saveOrUpdate(trajet);
         ModelAndView model = new ModelAndView("detailTrajet");
         model.addObject("trajet", trajet);
@@ -139,7 +142,7 @@ public class ControllerTittineShare {
 
 	/**
 	 * 
-	 * Crée l'utilisateur en fonction du formulaire
+	 * CrÃ©e l'utilisateur en fonction du formulaire
 	 * Ajoute l'utilisateur en base et en session
 	 * 
 	 * @return
@@ -156,7 +159,7 @@ public class ControllerTittineShare {
 	
 	/**
 	 * 
-	 * Invalide la session en cours et renvoie à l'écran de connexion
+	 * Invalide la session en cours et renvoie Ã  l'Ã©cran de connexion
 	 * 
 	 * @return
 	 * @throws Exception
@@ -171,7 +174,7 @@ public class ControllerTittineShare {
 
 	/**
 	 * 
-	 * Invalide la session en cours et renvoie à l'écran de connexion
+	 * Invalide la session en cours et renvoie Ã  l'Ã©cran de connexion
 	 * 
 	 * @return
 	 * @throws Exception
@@ -180,7 +183,11 @@ public class ControllerTittineShare {
     public ModelAndView deconnexion(HttpServletRequest request) {
 		request.getSession().invalidate();
 		ModelAndView modele = new ModelAndView("redirect:/");
-		modele.addObject("message", "Déconnexion effectuée");
+		modele.addObject("message", "Dï¿½connexion effectuï¿½e");
 	    return modele;
+	}
+	
+	private Utilisateur getUtilisateur(HttpServletRequest request){
+		return (Utilisateur) request.getSession(false).getAttribute(UTILISATEUR_SESSION);
 	}
 }

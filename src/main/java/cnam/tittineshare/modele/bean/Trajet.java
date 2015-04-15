@@ -22,6 +22,9 @@ public class Trajet implements Serializable{
     @Column(name = "TRAJET_ID")
 	private Integer id;
 	
+    @Column(name = "UTILISATEUR_ID")
+	private Integer utilisateurId;
+    
 	@Column(name="VILLE_DEPART")
 	private String villeDepart;
 	
@@ -178,5 +181,11 @@ public class Trajet implements Serializable{
 	}
 	public void setNbBagages(Integer nbBagages) {
 		this.nbBagages = nbBagages;
+	}
+	public Integer getUtilisateurId() {
+		return utilisateurId;
+	}
+	public void setUtilisateurId(Integer utilisateurId) {
+		this.utilisateurId = utilisateurId;
 	}
 }

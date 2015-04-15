@@ -66,7 +66,7 @@ public class TrajetDAO {
     
     @Transactional
     public List<Trajet> getByUtilisateur(int utilisateurId) {
-        String hql = "from trajet where utilisateur_id=" + utilisateurId;
+        String hql = "from Trajet where utilisateur_id=" + utilisateurId;
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
          
         @SuppressWarnings("unchecked")

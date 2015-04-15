@@ -30,7 +30,8 @@
 					    	Trajet
 						</th>
 						<th>
-							Modifier
+						</th>
+						<th>
 						</th>
 					</tr>
 				</thead>
@@ -38,9 +39,11 @@
 					<c:forEach var="trajet" items="${trajets}">
 						<tr onclick=
 							"document.location = '/tittineShare/modifier?id=${trajet.id}';">
-							<td>${trajet.heureDepart}h${trajet.minuteDepart} ${trajet.villeDepart} <-> ${trajet.villeArrivee} </td>
+							<td>${trajet.departHeure}h${trajet.departMinute} ${trajet.villeDepart} <-> ${trajet.villeArrivee} </td>
 							<td>
 								<!-- A FAIRE beau bouton-->
+								<a class="btn" href="detailTrajet?id=${trajet.id}">Détail</button>
+								<button>Modifier </button>
 							</td>
 						</tr>
 					</c:forEach>
