@@ -23,15 +23,25 @@
 		</div>
 		<div class="droite">
 			<ul class="menu">
-				<li class="etatConnexion">
-					<span class="connexion">
-						<img alt="connexion" src="resources/images/connexion.png">
-						Connexion
-					</span>
-					<span class="deconnexion">
-						<img alt="deconnexion" src="resources/images/deconnexion.png">
-						Déconnexion
-					</span>
+					<li class="etatConnexion">
+					<c:choose>
+						<c:when test="${empty utilisateur}">
+							<span class="connexion">
+								<a href="connexion">
+									<img alt="connexion" src="resources/images/connexion.png">
+									Connexion
+								</a>
+							</span>
+						</c:when>
+						<c:otherwise>
+							<span class="deconnexion">
+								<a href="deconnexion">
+									<img alt="deconnexion" src="resources/images/deconnexion.png">
+									Déconnexion
+								</a>
+							</span>
+						</c:otherwise>
+					</c:choose>
 				</li>  
 			</ul>
 		</div>

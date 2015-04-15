@@ -21,32 +21,45 @@ public class Trajet implements Serializable{
     @GeneratedValue
     @Column(name = "TRAJET_ID")
 	private Integer id;
+	
 	@Column(name="VILLE_DEPART")
 	private String villeDepart;
+	
 	@Column(name="VILLE_ARRIVEE")
 	private String villeArrivee;
 	@Column(name="DEPART_MINUTE")
 	private Integer departMinute;
+	
 	@Column(name="DEPART_HEURE")
 	private Integer departHeure;
+	
 	@Column(name="ARRIVEE_MINUTE")
 	private Integer arriveeMinute;
+	
 	@Column(name="ARRIVEE_HEURE")
 	private Integer arriveeHeure;
+	
 	@Column(name="DATE_TRAJET")
 	private String dateTrajet;
+	
 	@Column(name="VEHICULE")
 	private String vehicule;
+	
 	@Column(name="LIEU_DEPART")
 	private String lieuDepart;
+	
 	@Column(name="LIEU_ARRIVEE")
 	private String lieuArrivee;
+	
 	@Column(name="DESCRIPTION")
 	private String description;
+	
 	@Column(name="NB_PASSAGERS")
 	private Integer nbPassagers;
+	
 	@Column(name="NB_BAGAGES")
 	private Integer nbBagages;
+	
 	@Column(name="TYPE_TRAJET")
 	private Integer typeTrajet;
 	

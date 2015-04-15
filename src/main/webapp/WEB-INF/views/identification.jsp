@@ -22,7 +22,7 @@
 			${titrePage}
 		</h2>
 
-		<form action="/medimage/controle_identification" method="POST">
+		<form action="/tittineShare/connexion" method="POST">
 
 			<fieldset>
 
@@ -32,18 +32,14 @@
 				<p>
 					<input type="text" id="nom" name="nom"
 					placeholder="Nom">
-				</p> 
-				<!-- JS because of IE support; better: placeholder="mail@address.com" -->
-
-				<p>
-					<label for="motDePasse">Mot de passe</label>
+				</p> <p>
+					<label for="user">Prénom</label>
 				</p>
 				<p>
-					<input type="password" id="motDePasse"
-					placeholder="Mot de passe" name="motDePasse">
+					<input type="text" id="prenom" name="prenom"
+					placeholder="Prenom">
 				</p> 
-				<!-- JS because of IE support; better: placeholder="password" -->
-
+				<br/>
 				<p>
 					<input type="submit" value="Valider">
 				</p>
