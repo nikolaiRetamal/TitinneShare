@@ -42,7 +42,7 @@ public class ControllerTittineShare {
 	
 	/**
 	 * 
-	 * Servlet d'acc�s � la page d'identification
+	 * Servlet d'accès à la page d'identification
 	 * 
 	 * @return
 	 */
@@ -91,7 +91,7 @@ public class ControllerTittineShare {
 	/**
 	 * 
 	 * Servlet de suppression d'un trajet, sur la page de configuration d'un trajet
-	 * Renvoie � la liste de choix des trajets existants
+	 * Renvoie à la liste de choix des trajets existants
 	 * 
 	 * @return
 	 * @throws Exception
@@ -106,7 +106,7 @@ public class ControllerTittineShare {
 	/**
 	 * 
 	 * Servlet de sauvegarde d'un trajet
-	 * Appell�e lors de la validation des formulaires de cr�ation
+	 * Appellée lors de la validation des formulaires de création
 	 * 
 	 * @return
 	 * @throws Exception
@@ -119,7 +119,7 @@ public class ControllerTittineShare {
 	/**
 	 * 
 	 * Servlet de sauvegarde d'un trajet
-	 * Appell�e lors de la validation du formulaire de modification
+	 * Appellée lors de la validation du formulaire de modification
 	 * 
 	 * @return
 	 * @throws Exception
@@ -150,10 +150,23 @@ public class ControllerTittineShare {
 	 */
 	@RequestMapping(value="/connexion", method = RequestMethod.POST)
 	public ModelAndView connexion(@ModelAttribute Utilisateur utilisateur, HttpServletRequest request) {
-		utilisateur = utilisateurDao.saveOrUpdate(utilisateur);
-        request.getSession(false).setAttribute(UTILISATEUR_SESSION, utilisateur);
+		
 		ModelAndView model = new ModelAndView("accueil");
-		model.addObject("titrePage", "accueil");
+		
+		/*Contrôle de cohérence*/
+		if(utilisateur.getNom() == null || "".equals(utilisateur.getNom())
+				|| utilisateur.getPrenom() == null || "".equals(utilisateur.getPrenom())){
+			 
+			model = new ModelAndView("redirect:/");
+			model.addObject("message", "Vous devez saisir un nom et un prénom");
+			
+		}else{
+
+			utilisateur = utilisateurDao.saveOrUpdate(utilisateur);
+	        request.getSession(false).setAttribute(UTILISATEUR_SESSION, utilisateur);
+			model.addObject("titrePage", "accueil");
+		}
+		
 		return model;
 	}
 	
@@ -183,7 +196,7 @@ public class ControllerTittineShare {
     public ModelAndView deconnexion(HttpServletRequest request) {
 		request.getSession().invalidate();
 		ModelAndView modele = new ModelAndView("redirect:/");
-		modele.addObject("message", "D�connexion effectu�e");
+		modele.addObject("message", "Déconnexion effectuée");
 	    return modele;
 	}
 	
