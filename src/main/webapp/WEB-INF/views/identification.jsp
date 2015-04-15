@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <!doctype html>
 <html>
 <head>
@@ -10,6 +13,7 @@
 	<link href="resources/css/footable.metro.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="resources/css/medimage.css">
 	<link rel="stylesheet" href="resources/css/identification.css">
+	
 </head>
 <body>
 
@@ -21,14 +25,16 @@
 			</span>
 			${titrePage}
 		</h2>
-		<c:when test="${not empty message}">
-			<h2 style="font-size: medium ;text-align: center;">
-			<span class="lock">
-				<img alt="attention" src="resources/images/caution.png">
-			</span>
-			${message}
-			</h2>
-		</c:when>
+		<c:choose>
+			<c:when test="${not empty message}">
+				<h2 style="font-size: medium ;text-align: center;">
+				<span class="lock">
+					<img alt="attention" src="resources/images/caution.png">
+				</span>
+				${message}
+				</h2>
+			</c:when>
+		</c:choose>
 		<form action="/tittineShare/connexion" method="POST">
 
 			<fieldset>

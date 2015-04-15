@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,6 @@ public class ControllerTittineShare {
 	
 	private static final String UTILISATEUR_SESSION = "utilisateur";
 
-
 	/**
 	 * 
 	 * Servlet d'accueil, renvoie vers le menu de choix
@@ -47,10 +47,10 @@ public class ControllerTittineShare {
 	 * @return
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView identification(){
+	public ModelAndView identification(HttpServletRequest request){
 		ModelAndView model = new ModelAndView("identification");
 		model.addObject("titrePage", "identification");
-		model.addObject("message", "Veuillez vous identifier");
+		model.addObject("message", request.getParameter("message"));
 		return model;
 	}
 	
@@ -124,10 +124,17 @@ public class ControllerTittineShare {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ModelAndView saveTrajet(@ModelAttribute Trajet trajet) {
+    public ModelAndView saveUser(@ModelAttribute Trajet trajet) {
         trajetDao.saveOrUpdate(trajet);
-        return new ModelAndView("redirect:/accueil");
-    }  
+        ModelAndView model = new ModelAndView("detailTrajet");
+        model.addObject("trajet", trajet);
+        if(trajet.getTypeTrajet().equals(0)){
+        	model.addObject("typeTrajet", "Conducteur");
+        }else{
+        	model.addObject("typeTrajet", "Passager");
+        }
+        return model;
+    } 
 	
 
 	/**
@@ -155,7 +162,7 @@ public class ControllerTittineShare {
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/erreurConnexion", method = RequestMethod.GET)
-    public ModelAndView erreurConnexion(@ModelAttribute HttpServletRequest request) {
+    public ModelAndView erreurConnexion(HttpServletRequest request) {
 		request.getSession().invalidate();
 		ModelAndView modele = new ModelAndView("redirect:/");
 		modele.addObject("message", "Votre session est invalide !");
@@ -170,7 +177,7 @@ public class ControllerTittineShare {
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/deconnexion", method = RequestMethod.GET)
-    public ModelAndView deconnexion(@ModelAttribute HttpServletRequest request) {
+    public ModelAndView deconnexion(HttpServletRequest request) {
 		request.getSession().invalidate();
 		ModelAndView modele = new ModelAndView("redirect:/");
 		modele.addObject("message", "Déconnexion effectuée");

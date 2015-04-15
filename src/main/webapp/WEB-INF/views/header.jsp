@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 	<div id="header" class="">
 		<div class="gauche">
 			<ul class="menu">
