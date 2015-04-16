@@ -17,12 +17,14 @@
 	<div class="contenu">
 		<h1 class="titreSection">${titrePage}</h1>
 		<hr class="separateur">
-		
-		<div class="action">
-			<a href="trajets">
-				<span> Mes trajets</span>
-			</a>	
-		</div>
+		<c:if test="${trajetsVide != '1'}">
+			<div class="action">
+				<a href="trajets">
+					<span> Mes trajets</span>
+				</a>	
+			</div>
+		</c:if>
+
 		<div class="action">
 			<a href="create">
 				<span>Créer un trajet</span>

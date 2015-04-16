@@ -32,17 +32,26 @@
 					<span class="attribut">${trajet.villeArrivee}</span>
 				</div>
 			</div>
-			<div class="blocPresentation">
-				<hr>
-				<div class="colonnePresentation">
-					<span class="libelle">Lieu de départ</span><br>
-					<span class="attribut">${trajet.lieuDepart}</span>
-				</div>
-				<div class="colonnePresentation">
-					<span class="libelle">Lieu de d'arrivée</span><br>
-					<span class="attribut">${trajet.lieuArrivee}</span>
-				</div>
-			</div>
+			<c:choose>
+				<c:when test="${trajet.typeTrajet=='0'}">
+					<div class="blocPresentation">
+						<hr>
+						<div class="colonnePresentation">
+							<span class="libelle">Lieu de départ</span><br>
+							<span class="attribut">${trajet.lieuDepart}</span>
+						</div>
+						<div class="colonnePresentation">
+							<span class="libelle">Lieu de d'arrivée</span><br>
+							<span class="attribut">${trajet.lieuArrivee}</span>
+						</div>
+					</div>
+				</c:when>
+				
+				<c:otherwise>
+
+				</c:otherwise>
+			</c:choose>
+
 			<div class="blocPresentation">
 				<hr>
 				<div class="colonnePresentation">
@@ -64,27 +73,38 @@
 					</span>
 				</div>
 			</div>
-			<div class="blocPresentation">
-				<hr>
-				<div class="colonnePresentation">
-					<span class="libelle">Véhicule</span><br>
-					<span class="attribut">
-						${trajet.vehicule}
-					</span>
-				</div>
-				<div class="colonnePresentation">
-					<span class="libelle">Nombre de passagers</span><br>
-					<span class="attribut">
-						${trajet.nbPassagers}
-					</span>
-				</div>
-				<div class="colonnePresentation">
-					<span class="libelle">Nombre de bagages</span><br>
-					<span class="attribut">
-						${trajet.nbBagages}
-					</span>
-				</div>
-			</div>
+			<c:choose>
+				<c:when test="${trajet.typeTrajet=='0'}">
+					<div class="blocPresentation">
+						<hr>
+		
+						<div class="colonnePresentation">
+							<span class="libelle">Véhicule</span><br>
+							<span class="attribut">
+								${trajet.vehicule}
+							</span>
+						</div>
+						<div class="colonnePresentation">
+							<span class="libelle">Nombre de passagers</span><br>
+							<span class="attribut">
+								${trajet.nbPassagers}
+							</span>
+						</div>
+						<div class="colonnePresentation">
+							<span class="libelle">Nombre de bagages</span><br>
+							<span class="attribut">
+								${trajet.nbBagages}
+							</span>
+						</div>
+					</div>
+
+				</c:when>
+				
+				<c:otherwise>
+
+				</c:otherwise>
+			</c:choose>
+
 			<a class="btn btn-default" href="accueil">Revenir à l'accueil</a>
 		</div>
 </body>

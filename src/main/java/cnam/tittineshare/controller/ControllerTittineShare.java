@@ -35,8 +35,16 @@ public class ControllerTittineShare {
 	 * @return
 	 */
 	@RequestMapping(value = "/accueil", method = RequestMethod.GET)
-	public ModelAndView accueil(){
+	public ModelAndView accueil(HttpServletRequest request){
+
 		ModelAndView model = new ModelAndView("accueil");
+		Utilisateur utilisateur = getUtilisateur(request);
+		/*On contrôle l'existence d'au moins un trajet en base pour 
+		 * afficher le bouton "Mes trajets"*/
+		List<Trajet> trajets = trajetDao.getByUtilisateur(utilisateur.getId());
+		if(trajets == null ||trajets.size() == 0){
+			model.addObject("trajetsVide", "1");
+		}
 		model.addObject("titrePage", "accueil");
 		return model;
 	}
@@ -166,7 +174,7 @@ public class ControllerTittineShare {
 	@RequestMapping(value="/connexion", method = RequestMethod.POST)
 	public ModelAndView connexion(@ModelAttribute Utilisateur utilisateur, HttpServletRequest request) {
 		
-		ModelAndView model = new ModelAndView("accueil");
+		ModelAndView model = new ModelAndView("redirect:/accueil");
 		
 		/*Contrôle de cohérence*/
 		if(utilisateur.getNom() == null || "".equals(utilisateur.getNom())
