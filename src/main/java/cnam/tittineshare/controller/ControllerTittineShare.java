@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +30,7 @@ public class ControllerTittineShare {
 	/**
 	 * 
 	 * Servlet d'accueil, renvoie vers le menu de choix
+	 * Oriente l'utilisateur vers "créer trajet" ou "modifier trajet"
 	 * 
 	 * @return
 	 */
@@ -44,6 +44,7 @@ public class ControllerTittineShare {
 	/**
 	 * 
 	 * Servlet d'accès à la page d'identification
+	 * Si l'on est "redirigé" sur cette servlet, celle-ci recycle le message transmis.
 	 * 
 	 * @return
 	 */
@@ -59,6 +60,7 @@ public class ControllerTittineShare {
 	 * 
 	 * Servlet d'accès à la page de configuration d'un trajet
 	 * Bouton "Créer trajet"
+	 * Renvoie la liste des trajets de l'utilisateur connecté
 	 * 
 	 * @return
 	 * @throws Exception
@@ -76,6 +78,7 @@ public class ControllerTittineShare {
 	 * 
 	 * Servlet d'accès à la page de modification d'un trajet
 	 * Bouton "Modifier trajet"
+	 * Renvoie vers le formulaire de création/modification 
 	 * 
 	 * @return
 	 * @throws Exception

@@ -1,4 +1,4 @@
-DROP DATABASE  `tittineShare`;
+#DROP DATABASE  `tittineShare`;
 CREATE DATABASE `tittineShare`;
 
 CREATE TABLE  `tittineShare`.`UTILISATEUR` (
@@ -31,8 +31,3 @@ CREATE TABLE  `tittineShare`.`TRAJET` (
         REFERENCES `tittineShare`.`UTILISATEUR`(`UTILISATEUR_ID`)
         ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
-
-INSERT INTO `tittineShare`.`UTILISATEUR` (UTILISATEUR_NOM,UTILISATEUR_PRENOM) values ('TEST','BOB');
-select * from `tittineShare`.`UTILISATEUR`;

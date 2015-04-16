@@ -34,6 +34,15 @@ public class UtilisateurDAO {
         return listUtilisateur;
     }
 
+    /**
+     * 
+     * Cette classe crée un nouvel utilisateur avec les noms/prénoms fournis.
+     * Si il existe déjà un utilisateur en base pour la clef noms/prénoms la méthode renvoie plutôt cet utilisateur.
+     * Cependant la clef primaire reste le utilisateur_id qui sert de clef étrangère dans la table des trajets.
+     * 
+     * @param user
+     * @return
+     */
     @Transactional
     public Utilisateur saveOrUpdate(Utilisateur user) {
     	
@@ -71,6 +80,15 @@ public class UtilisateurDAO {
         return null;
     }
     
+    /**
+     * 
+     * Renvoie un utilisateur avec les nom/prénom fournis si il existe en base.
+     * La comparaison est réalisée via un UPPERCASE()
+     * 
+     * @param nom
+     * @param prenom
+     * @return
+     */
     @Transactional
     public Utilisateur get(String nom,String prenom) {
         String hql = "from Utilisateur where UCASE(UTILISATEUR_NOM) like UCASE('" + nom + "')"+
