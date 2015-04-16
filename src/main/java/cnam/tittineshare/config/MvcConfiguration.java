@@ -53,8 +53,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/tittineShare");
 		dataSource.setUsername("root");
-		dataSource.setPassword("");
-	 
+		dataSource.setPassword("root");
 		return dataSource;
 	}
 	
@@ -62,6 +61,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     	Properties properties = new Properties();
     	properties.put("hibernate.show_sql", "true");
     	properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+    	properties.put("hibernate.connection.CharSet", "utf8");
+    	properties.put("hibernate.connection.characterEncoding", "utf8");
     	return properties;
     }
 	
