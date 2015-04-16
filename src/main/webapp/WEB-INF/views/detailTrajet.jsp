@@ -85,6 +85,7 @@
 					</span>
 				</div>
 			</div>
+			<a class="btn btn-default" href="accueil">Revenir à l'accueil</a>
 		</div>
 </body>
 <!-- Imports JS -->
