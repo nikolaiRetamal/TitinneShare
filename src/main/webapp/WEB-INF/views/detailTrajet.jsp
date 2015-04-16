@@ -18,13 +18,9 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div class="conteneurContenu">
 	<div class="contenu">
 		<h1 class="titreSection">Détail du trajet en tant que ${typeTrajet}</h1>
 		<hr class="separateur">
-		
-		<div class="descriptionExamen">
-		<div id="presentationExamen">
 			<div class="blocPresentation">
 				<hr>
 				<div class="colonnePresentation">
@@ -35,6 +31,20 @@
 					<span class="libelle">Destination</span><br>
 					<span class="attribut">${trajet.villeArrivee}</span>
 				</div>
+			</div>
+			<div class="blocPresentation">
+				<hr>
+				<div class="colonnePresentation">
+					<span class="libelle">Lieu de départ</span><br>
+					<span class="attribut">${trajet.lieuDepart}</span>
+				</div>
+				<div class="colonnePresentation">
+					<span class="libelle">Lieu de d'arrivée</span><br>
+					<span class="attribut">${trajet.lieuArrivee}</span>
+				</div>
+			</div>
+			<div class="blocPresentation">
+				<hr>
 				<div class="colonnePresentation">
 					<span class="libelle">Date</span><br>
 					<span class="attribut">
@@ -52,14 +62,6 @@
 					<span class="attribut">
 						${trajet.arriveeHeure}H${trajet.arriveeMinute}
 					</span>
-				</div>
-				<div class="colonnePresentation">
-					<span class="libelle">Lieu de départ</span><br>
-					<span class="attribut">${trajet.lieuDepart}</span>
-				</div>
-				<div class="colonnePresentation">
-					<span class="libelle">Lieu de d'arrivée</span><br>
-					<span class="attribut">${trajet.lieuArrivee}</span>
 				</div>
 			</div>
 			<div class="blocPresentation">
@@ -84,9 +86,6 @@
 				</div>
 			</div>
 		</div>
-		</div>
-	</div>
-	</div>
 </body>
 <!-- Imports JS -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>

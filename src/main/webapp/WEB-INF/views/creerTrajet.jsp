@@ -24,6 +24,7 @@
 		<div>
 			<form:form  modelAttribute="trajet" id="trajetform" action="/tittineShare/save"
 			class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+			<input type="hidden" name="id" value="${trajet.id}"/>
 				<div class="form-group">
 					<label for="typeTrajet">Type de trajet</label>
 					<select id="typeTrajet" name="typeTrajet">

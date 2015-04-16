@@ -4,8 +4,8 @@ html, body{
 }
 #header{
 	width:100%;
-	background:#b9d5bf;	
-	overflow: hidden; /*EmpÃªche height = 0*/
+	background:#b9d5bf;
+	overflow: hidden; /*Empêche height = 0*/
 	padding:5px 0;
 }
 #header #titre{
@@ -70,6 +70,11 @@ div.action{
 	font-size: 28px;
 	text-align: center;
 }
+
+hr{
+	height: 2px;
+	background:#b9d5bf;	
+}
 .separateur{
 	width:60%;
 	height: 2px;
@@ -114,4 +119,9 @@ table{
 
 form{
 	padding-top:30px;
+}
+
+.contenu{
+  width: 80%;
+  margin: auto;	
 }

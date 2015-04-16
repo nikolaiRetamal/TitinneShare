@@ -37,9 +37,8 @@
 				</thead>
 				<tbody>
 					<c:forEach var="trajet" items="${trajets}">
-						<tr onclick=
-							"document.location = '/tittineShare/modifier?id=${trajet.id}';">
-							<td>${trajet.departHeure}h${trajet.departMinute} ${trajet.villeDepart} <-> ${trajet.villeArrivee} </td>
+						<tr>
+							<td>[${trajet.dateTrajet}] Départ à ${trajet.departHeure}h${trajet.departMinute} de ${trajet.villeDepart} vers ${trajet.villeArrivee} </td>
 							<td>
 								<!-- A FAIRE beau bouton-->
 								<a class="btn" href="detailTrajet?id=${trajet.id}">Détail</a>
